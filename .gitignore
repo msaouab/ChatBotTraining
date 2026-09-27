@@ -25,3 +25,6 @@ dist-ssr
 
 # design files
 design/*
+
+# Environment variables
+.env

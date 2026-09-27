@@ -7,11 +7,20 @@ export type TextSize = '14px' | '15px' | '17px'
 export type ChatItem = {
   id: string
   title: string
+  updatedAt: number
 }
 
 export type ChatHistoryGroup = {
   label: string
   items: ChatItem[]
+}
+
+export type ChatSession = {
+  id: string
+  title: string
+  messages: ChatMessage[]
+  createdAt: number
+  updatedAt: number
 }
 
 export type SuggestionIcon = 'code' | 'book' | 'pen' | 'bulb'
@@ -34,7 +43,8 @@ export type ChatMessage =
       id: string
       role: 'assistant'
       typing?: boolean
-      kind?: 'demo' | 'placeholder'
+      streaming?: boolean
+      kind?: 'demo' | 'placeholder' | 'error'
       prompt?: string
       content?: ReactNode
     }
@@ -44,6 +54,8 @@ export type DisplayMessage = {
   role: 'user' | 'assistant'
   content?: ReactNode
   typing?: boolean
+  streaming?: boolean
+  error?: boolean
 }
 
 export type SettingsTab =
